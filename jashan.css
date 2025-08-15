@@ -1,0 +1,268 @@
+.root{
+    --card-height : 200px;
+    --card-width : calc(var(--image.container-height)/1.5);
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+     background-color: beige;
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     perspective: 1000px;
+    
+}
+a{
+    color:darkblue;
+    text-decoration: solid;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 80px;
+}
+nav .left a{
+    color: darkblue;
+    font-size: 22px;
+    font-weight: 600;
+}
+nav .right a span{
+    margin-left: 5px;
+}
+nav .right a{
+    font-size: 20px;
+    margin: 0 10px;
+}
+.a{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin: 50px 0;
+    align-items: center;
+    margin-bottom: 100px;
+    gap: 40px;
+}
+.a .text{
+    flex: 5;
+
+}
+.a .image{
+    flex: 2;
+    display: flex;
+    justify-content: right;
+}
+.a .text h2{
+    font-size: 45px;
+}
+.a .text .links{
+    margin-top: 25px;
+}
+.a .text .links a{
+    display: inline_block;
+    padding: 2px 10px;
+    border: 2px solid green;
+    border-radius: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.a .text .links a:hover{
+    color:dimgray;
+    border: 2px green;
+    transition: .1s;
+}
+.card {
+  width: 50%;
+  height: 40%;
+  position: relative;
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  padding: 0 36px;
+  perspective: 2500px;
+  margin: 0 50px;
+  cursor: pointer;
+}
+
+.cover-image {
+  width: 50%;
+  height: 40%;
+  object-fit: cover;
+}
+
+.wrapper {
+  transition: all 0.5s;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+.card:hover .wrapper {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
+}
+
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  opacity: 0;
+  width: 50%;
+  height: 30px;
+  transition: all 0.5s;
+  position: absolute;
+  left: 0;
+}
+.wrapper::before {
+  top: 0;
+  height: 50%;
+  background-image: linear-gradient(
+    to top,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+.wrapper::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 46%,
+    rgba(12, 13, 19, 0.5) 68%,
+    rgba(12, 13, 19) 97%
+  );
+}
+
+.card:hover .wrapper::before,
+.wrapper::after {
+  opacity: 1;
+}
+
+.card:hover .wrapper::after {
+  height: 200px;
+}
+.title {
+  width: 50%;
+  transition: transform 0.5s;
+}
+.card:hover .title {
+  transform: translate3d(0%, -50px, 100px);
+}
+
+.character {
+  width: 50%;
+  opacity: 0;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: -1;
+}
+
+.card:hover .character {
+  opacity: 1;
+  transform: translate3d(0%, -30%, 100px);
+}
+.image-container:hover{
+    transform: rotateY('10deg') rotateX('5deg') rotateZ('20px')
+}
+.sect{
+    padding: 0 50px;
+    margin-bottom: 100px;
+
+}
+.sect h2{
+    text-align:center;
+    font-size: 35px;
+}
+.sect .helltxt{
+    text-align: center;
+    margin-bottom: 20px;
+        
+}
+.sect .cells{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.sect .cells .cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: 200px;
+    padding: 20px 20px;
+    border: 1.5px solid gray;
+    border-radius: 5px;
+    margin: 10px;
+}
+.sect .cells .cell img{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    border-radius: 2px;
+}
+.sect .cells .cell span{
+    font-size: 18px;
+}
+
+.contacts{
+  padding: 0 50px;
+  margin-bottom: 100px;
+  
+}
+.contacts h2{
+  font-size: 35px;
+  margin-top: 20px;
+}
+.contacts .group{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+.contacts .group .texty{
+  flex: 3;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.contacts .group form{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-left: 100px;
+  margin-right: 200px;
+  border: 2px solid lightslategray;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+.contacts .group  form input,
+.contacts .group form textarea{
+  font-family: "poppins", sans-serif;
+  border: 3px solid lightseagreen;
+  background-color: transparent;
+  padding: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  resize: none;
+
+}
+.contacts .group form button{
+  font-size: 16px;
+  font-family:"popins", sans-serif;
+  color: aliceblue;
+  background-color: blue;
+  border: none;
+  height: 50px;
+  width: 300px;
+  cursor: pointer;
+  transition: 2.1s;
+
+}
+.contacts .group form button:hover{
+  filter: brightness(.15);
+}
